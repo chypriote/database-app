@@ -1,50 +1,54 @@
-appServices.factory('dataService', ['Restangular', 'userService', function (Restangular, userService) {
+'use strict';
+
+require('restangular');
+
+module.exports = /*@ngInject*/ function (Restangular, userService) {
 	function getAll(route, onSuccess, onError) {
 		Restangular.all('api/' + route).getList()
-			.then(function(response) {
+			.then(function (response) {
 				onSuccess(response);
-			}, function(response) {
+			}, function (response) {
 				onError(response);
 			});
 	}
 
 	function getById(siteId, route, onSuccess, onError) {
 		Restangular.one('api/' + route, siteId).get()
-			.then(function(response){
+			.then(function (response) {
 				onSuccess(response);
-			}, function(response) {
+			}, function (response) {
 				onError(response);
 			});
 	}
 
 	function create(data, route, onSuccess, onError) {
 		Restangular.all('api/' + route).post(data)
-			.then(function(response) {
+			.then(function (response) {
 				onSuccess(response);
-			}, function(response) {
+			}, function (response) {
 				onError(response);
 			});
 	}
 
 	function update(siteId, data, route, onSuccess, onError) {
 		Restangular.one('api/' + route).customPUT(data, siteId)
-			.then(function(response) {
+			.then(function (response) {
 				onSuccess(response);
-			}, function(response) {
+			}, function (response) {
 				onError(response);
 			});
 	}
 
 	function remove(siteId, route, onSuccess, onError) {
 		Restangular.one('api/' + route, siteId).remove()
-			.then(function() {
+			.then(function () {
 				onSuccess();
-			}, function() {
+			}, function () {
 				onError();
 			});
 	}
 
-	Restangular.setDefaultRequestParams({'token' : userService.getToken()});
+	Restangular.setDefaultRequestParams({token: userService.getToken()});
 
 	return {
 		getAll: getAll,
@@ -53,4 +57,4 @@ appServices.factory('dataService', ['Restangular', 'userService', function (Rest
 		update: update,
 		remove: remove
 	};
-}]);
+};

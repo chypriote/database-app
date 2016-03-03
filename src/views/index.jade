@@ -1,0 +1,40 @@
+extends ../layout/default
+
+block main
+	hr
+	.pull-left
+		button.btn.btn-success(type='button', data-toggle='modal', data-target='#addSiteModal') + Add Site
+	.pull-right
+		button.btn.btn-info(type='button', ng-click='main.logout()') Logout!
+	.clearfix
+	hr
+	.row
+		.col-md-12
+			p You currently have <strong>{{ main.sites.length }}</strong> sites in your database.
+			ul
+				li(ng-repeat='site in main.sites') <strong> {{ site.name }}</strong> by <em>{{ site.url }}</em>
+	.row
+		.col-md-12
+			p You currently have <strong>{{ main.actors.length }}</strong> actors in your database.
+			ul
+				li(ng-repeat='actor in main.actors') <strong> {{ actor.name }}</strong> by <em>{{ actor.picture }}</em>
+	.row
+		.col-md-12
+			p You currently have <strong>{{ main.videos.length }}</strong> videos in your database.
+			ul
+				li(ng-repeat='video in main.videos') <strong> {{ video.title }}</strong> - <em>{{ video.rating }} stars</em>
+	#addSiteModal.modal.fade
+		.modal-dialog
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') ×
+					h4.modal-title Add a Site
+				.modal-body
+					p
+						input.form-control(ng-model='main.currentSiteName', placeholder='Name', type='text')
+					p
+						input.form-control(ng-model='main.currentSiteUrl', placeholder='Url', type='text')
+				.modal-footer
+					button.btn.btn-default(type='button', data-dismiss='modal') Close
+					button.btn.btn-primary(type='button', ng-click='main.create()') Save Site

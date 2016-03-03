@@ -1,4 +1,9 @@
-appServices.factory('userService', ['$http', 'localStorageService', function ($http, localStorageService) {
+'use strict';
+
+require('angular');
+require('angular-local-storage');
+
+module.exports = /*@ngInject*/ function ($http, localStorageService) {
 	function isLogged() {
 		return localStorageService.get('token');
 	}
@@ -9,10 +14,10 @@ appServices.factory('userService', ['$http', 'localStorageService', function ($h
 			email: email,
 			password: password
 		})
-		.then(function(response) {
+		.then(function (response) {
 			localStorageService.set('token', response.data.token);
 			onSuccess(response);
-		}, function(response) {
+		}, function (response) {
 			onError(response);
 		});
 	}
@@ -22,10 +27,10 @@ appServices.factory('userService', ['$http', 'localStorageService', function ($h
 			email: email,
 			password: password
 		})
-		.then(function(response) {
+		.then(function (response) {
 			localStorageService.set('token', response.data.token);
 			onSuccess(response);
-		}, function(response) {
+		}, function (response) {
 			onError(response);
 		});
 	}
@@ -44,6 +49,6 @@ appServices.factory('userService', ['$http', 'localStorageService', function ($h
 		login: login,
 		logout: logout,
 		getToken: getToken
-	}
-}]);
+	};
+};
 
