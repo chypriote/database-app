@@ -1,0 +1,31 @@
+{
+  "name": "database-app",
+  "version": "1.0.0",
+  "description": "Appli pour stocker des choses",
+  "main": "index.php",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chypriote/database-app.git"
+  },
+  "keywords": [
+    "database",
+    "app"
+  ],
+  "author": "ChypRiotE",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chypriote/database-app/issues"
+  },
+  "homepage": "https://github.com/chypriote/database-app#readme",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-local-storage": "^0.2.6",
+    "angular-route": "^1.5.0",
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.1",
+    "restangular": "^1.5.2"
+  }
+}
