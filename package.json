@@ -1,10 +1,13 @@
 {
-  "private": true,
-  "devDependencies": {
-    "gulp": "^3.8.8"
-  },
-  "dependencies": {
-    "laravel-elixir": "^3.0.0",
-    "bootstrap-sass": "^3.0.0"
-  }
+	"name": "database-app",
+	"version": "1.0.0",
+	"description": "A simple app to store datas",
+	"private": true,
+	"devDependencies": {
+		"gulp": "^3.8.8"
+	},
+	"dependencies": {
+		"laravel-elixir": "^3.0.0",
+		"bootstrap-sass": "^3.0.0"
+	}
 }
