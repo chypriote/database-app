@@ -23,7 +23,7 @@ class VideoController extends Controller
 		{
 			$videos = Video::all();
 			foreach ($videos as $video) {
-				$video->actors = Video::find($id)->actors()->get();
+				$video->actors = Video::find($video->id)->actors()->get();
 			}
 			return $videos;
 		}

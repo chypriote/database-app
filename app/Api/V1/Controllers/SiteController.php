@@ -22,7 +22,7 @@ class SiteController extends Controller
 		{
 			$sites = Site::all();
 			foreach ($sites as $site) {
-				$site->videos = Site::find($id)->videos()->get();
+				$site->videos = Site::find($site->id)->videos()->get();
 			}
 			return $sites;
 		}
