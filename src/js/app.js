@@ -8,18 +8,20 @@ require('angular-route');
 require('restangular');
 require('lodash');
 
-var app = angular.module('databaseApp', ['ngRoute', 'restangular', 'LocalStorageModule']);
+angular.module('databaseApp', ['ngRoute', 'restangular', 'LocalStorageModule']);
 
 require('./services');
 require('./auth');
+require('./directives');
 
-app.controller('MainController', require('./main.controller'));
+angular.module('databaseApp').controller('MainController', require('./main.controller'));
 
-app.config(['$routeProvider', function ($routeProvider) {
+angular.module('databaseApp')
+.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider
 		.when('/login', {
 			templateUrl: 'partials/login.html',
-			controller: 'LoginController',
+			controller: 'loginController',
 			controllerAs: 'login'
 		})
 		.when('/signup', {
@@ -35,7 +37,8 @@ app.config(['$routeProvider', function ($routeProvider) {
 		.otherwise({redirectTo: '/'});
 }]);
 
-app.config(function (RestangularProvider) {
+angular.module('databaseApp')
+.config(function (RestangularProvider) {
 	RestangularProvider.addResponseInterceptor(function (data, operation, what, url, response, deferred) { //eslint-disable-line
 		var extractedData;
 		if (operation === 'getList' && url === '/api/sites') {

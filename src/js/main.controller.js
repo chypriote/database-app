@@ -12,17 +12,8 @@ module.exports = /*@ngInject*/ function ($location, userService, dataService) {
 	};
 
 	vm.refresh = function () {
-		dsv.getAll('sites', function (response) {
-			vm.sites = response;
-		}, function () {
-			console.log('Error with API');
-		});
-		dsv.getAll('actors', function (response) {
-			vm.actors = response;
-		}, function () {
-			console.log('Error with API');
-		});
 		dsv.getAll('videos', function (response) {
+			console.log(response);
 			vm.videos = response;
 		}, function () {
 			console.log('Error with API');
@@ -50,8 +41,6 @@ module.exports = /*@ngInject*/ function ($location, userService, dataService) {
 	if (!usv.isLogged()) {
 		$location.path('/login');
 	}
-	vm.sites = [];
-	vm.actors = [];
 	vm.videos = [];
 	vm.currentSiteReset();
 	vm.refresh();
