@@ -1,0 +1,14 @@
+.container(style='display:flex; flex-direction:column;justify-content:center;min-height:80vh;')
+	.row
+		.col-sm-6.col-sm-offset-3
+			p.alert.alert-danger.modal-content Sorry, registration has been temporarly disabled
+			.modal-content.modal-body
+				fieldset.form-group
+					input.form-control(type='text', placeholder='Name', ng-model='signup.name', required='', disabled="")
+				fieldset.form-group
+					input.form-control(type='text', placeholder='Email Address', ng-model='signup.email', required='', disabled="")
+				fieldset.form-group
+					input.form-control(type='password', placeholder='Password', ng-model='signup.password', required='', disabled="")
+				fieldset.form-group
+					button.btn.btn-success.form-control.disabled(type='button') Signup
+				a(href='#login') Already signed up? <strong> Log in !</strong>

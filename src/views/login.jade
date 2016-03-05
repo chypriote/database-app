@@ -1,0 +1,26 @@
+.container(style='display:flex; flex-direction:column;justify-content:center;min-height:80vh;')
+	.row
+		.col-sm-6.col-sm-offset-3
+			p.alert.alert-info.modal-content You need to login to use this application
+			p.alert.alert-danger.modal-content(ng-show="login.errorMessage", ng-model="login.errorMessage") {{login.errorMessage}}
+			form.modal-content.modal-body(
+				no-validate="",
+				name="loginForm",
+				ng-submit="loginForm.$valid && login.login()"
+			)
+				fieldset.form-group
+					input.form-control(
+						type='text',
+						placeholder='Email Address',
+						ng-model='login.email',
+						required=''
+					)
+				fieldset.form-group
+					input.form-control(
+						type='password',
+						placeholder='Password',
+						ng-model='login.password',
+						required=''
+					)
+				fieldset.form-group
+					button.btn.btn-success.form-control(type='submit') Login
