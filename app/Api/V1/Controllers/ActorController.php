@@ -22,7 +22,7 @@ class ActorController extends Controller
 		{
 			$actors = Actor::all();
 			foreach ($actors as $actor) {
-				$actor->videos = Actor::find($actor->id)->videos()->get();
+				$actor->videos = $actor->videos()->get();
 			}
 			return $actors;
 		}
@@ -68,7 +68,7 @@ class ActorController extends Controller
 			if (!$actor)
 				throw new NotFoundHttpException;
 
-			$actor->videos = Actor::find($id)->videos()->get();
+			$actor->videos = $actor->videos()->get();
 			return $actor;
 		}
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="databaseApp">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
 	<link href="css/paper.min.css" rel="stylesheet">
 	<link href="css/main.min.css" rel="stylesheet">
 </head>
-<body ng-app="databaseApp">
+<body>
 	<ng-view></ng-view>
 	<script src="js/app.min.js"></script>
 </body>

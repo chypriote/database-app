@@ -23,7 +23,8 @@ class VideoController extends Controller
 		{
 			$videos = Video::all();
 			foreach ($videos as $video) {
-				$video->actors = Video::find($video->id)->actors()->get();
+				$video->actors = $video->actors()->get();
+				$video->site = $video->site()->get()[0];
 			}
 			return $videos;
 		}
@@ -82,8 +83,8 @@ class VideoController extends Controller
 			if (!$video)
 				throw new NotFoundHttpException;
 
-			$video->site = Video::find($id)->site()->get();
-			$video->actors = Video::find($id)->actors()->get();
+			$video->site = $video->site()->get()[0];
+			$video->actors = $video->actors()->get();
 			return $video;
 		}
 

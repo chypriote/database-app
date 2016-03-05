@@ -22,7 +22,7 @@ class SiteController extends Controller
 		{
 			$sites = Site::all();
 			foreach ($sites as $site) {
-				$site->videos = Site::find($site->id)->videos()->get();
+				$site->videos = $site->videos()->get();
 			}
 			return $sites;
 		}
@@ -67,7 +67,7 @@ class SiteController extends Controller
 			$site = Site::find($id);
 			if (!$site)
 				throw new NotFoundHttpException;
-			$site->videos = Site::find($id)->videos()->get();
+			$site->videos = $site->videos()->get();
 			return $site;
 		}
 
